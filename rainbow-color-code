@@ -1,0 +1,32 @@
+#!/bin/sh
+set -euf
+
+##
+# Generate rainbow color code, which is a secure
+# random six character lowercase hex string.
+#
+# Usage:
+#
+#     rainbow-color-code
+#
+# Examples:
+#
+#     $ rainbow-color-code
+#     2ebcf1
+#
+#
+# ## Implementation
+#
+# This implementation uses `/dev/urandom`
+# and `tr` to select matching characters.
+#
+#
+# ## Tracking
+#
+# Version: 2.0.0
+# Updated: 2020-03-24
+# License: GPL
+# Contact: Joel Parker Henderson (joel@joelparkerhenderson.com)
+##
+
+printf "%s\n" $(LC_ALL=C < /dev/urandom tr -dc "0-9a-f" | head -c6)
